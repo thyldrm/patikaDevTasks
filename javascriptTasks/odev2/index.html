@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Yapılacaklar Listesi || Patika.dev Challange</title>
+</head>
+<body>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">UYARI</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Listedeki bütüm elemanları silmek istediğinize emin misiniz? Yaptığnınz değişiklikler geri
+                    alınamayacaktır.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Vazgeç</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="remove-button">Tümünü
+                        Sil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+    <div class="container-fluid">
+        <div class="container-lg" id="header">
+            <div class="image-con">
+                <img src="https://cdn.sanity.io/images/9kdepi1d/production/65c832d202a503b15d99e628f4313782f3ef50db-300x62.png"
+                    alt="" class="image" />
+            </div>
+            <h2 class="text-center text-white">Yapılacaklar Listesi</h2>
+            <form id="addTaskForm" name="addTaskForm" class="d-flex">
+                <input type="text" id="task" placeholder="Bugün ne yapacaksın?" class="form-control mx-3" />
+                <button class="btn btn-success mr-3">Ekle</button>
+            </form>
+            <button class="btn btn-danger mx-3 my-3 id" data-toggle="modal" data-target="#exampleModal">Tümünü
+                Sil</button>
+        </div>
+        <div class="container-lg">
+            <ul id="list" class="list-group">
+            </ul>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>
+
+<style>
+    .container-lg {
+        padding: 0 !important;
+    }
+
+    .image-con {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .image {
+        width: 70% !important;
+    }
+
+    #header {
+        background:
+            radial-gradient(black 15%, transparent 16%) 0 0,
+            radial-gradient(black 15%, transparent 16%) 8px 8px,
+            radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+            radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+        background-color: #282828;
+        background-size: 16px 16px;
+        border-radius: 0 0 8px 8px;
+    }
+
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        top: 30px;
+    }
+
+    #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 1.2s;
+        animation: fadein 0.5s, fadeout 0.5s 1.2s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {
+            top: 0;
+            opacity: 0;
+        }
+
+        to {
+            top: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadein {
+        from {
+            top: 0;
+            opacity: 0;
+        }
+
+        to {
+            top: 30px;
+            opacity: 1;
+        }
+    }
+
+    @-webkit-keyframes fadeout {
+        from {
+            top: 30px;
+            opacity: 1;
+        }
+
+        to {
+            top: 0;
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadeout {
+        from {
+            top: 30px;
+            opacity: 1;
+        }
+
+        to {
+            top: 0;
+            opacity: 0;
+        }
+    }
+
+    body {
+        background: url(bg.jpg)
+    }
+</style>

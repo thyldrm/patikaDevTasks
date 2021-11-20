@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function List({ todos, setTodos, sort, setSort }) {
+  
   const deleteTodos = (i) => {
     const newTodos = [...todos];
     newTodos.splice(i, 1);
